@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>出差行程 · 新加坡 + 悉尼 · 11/16–11/24</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#f7f2e9; color:#3a332a; font-family:-apple-system,"PingFang SC","Helvetica Neue",sans-serif; padding:28px 16px 60px; }
+  .wrap { max-width:960px; margin:0 auto; }
+  .kicker { color:#b0764f; font-size:13px; letter-spacing:2px; margin-bottom:6px; }
+  h1 { font-family:"Songti SC","Noto Serif SC",Georgia,serif; font-size:30px; font-weight:600; margin-bottom:12px; }
+  .pill { display:inline-block; background:#f3ece0; color:#8a7d6b; border-radius:999px; padding:3px 12px; font-size:13px; margin-right:8px; }
+  .nav { margin:14px 0 4px; font-size:14px; }
+  .nav a { color:#b0764f; text-decoration:none; margin-right:18px; }
+  .toggle { margin:18px 0 22px; }
+  .toggle button { background:#fbf7ef; border:1px solid #e0d5c2; color:#3a332a; border-radius:999px; padding:7px 20px; font-size:14px; cursor:pointer; margin-right:8px; }
+  .toggle button.on { background:#b0764f; border-color:#b0764f; color:#fff; }
+  .week { font-family:"Songti SC","Noto Serif SC",Georgia,serif; color:#8a7d6b; font-size:15px; margin:26px 0 12px; border-bottom:1px solid #e0d5c2; padding-bottom:6px; }
+  .tag { display:inline-block; border-radius:12px; padding:1px 9px; font-size:12px; background:#f3ece0; color:#8a7d6b; margin-left:6px; }
+  .tag.warn { background:#f5e3d3; color:#b0764f; }
+  .tag.ok { background:#e4ecdd; color:#5a7247; }
+  /* 简单模式 day 卡 */
+  .day { display:flex; background:#fbf7ef; border-radius:14px; margin-bottom:10px; overflow:hidden; }
+  .day .left { flex:0 0 150px; background:#f3ece0; padding:14px; }
+  .day .left .d { font-family:"Songti SC","Noto Serif SC",Georgia,serif; font-size:18px; font-weight:600; }
+  .day .left .w { color:#8a7d6b; font-size:13px; margin:2px 0 8px; }
+  .day .left .h { font-size:12.5px; color:#8a7d6b; line-height:1.5; }
+  .day .right { flex:1; display:flex; }
+  .seg { flex:1; padding:12px 14px; border-left:1px dashed #e0d5c2; }
+  .seg .t { font-size:12px; color:#b0764f; letter-spacing:1px; margin-bottom:5px; }
+  .seg .a { font-size:14px; line-height:1.7; }
+  .empty { color:#c2b6a3; }
+  /* 详细模式 card */
+  .card { background:#fbf7ef; border-radius:14px; padding:18px 20px; margin-bottom:14px; }
+  .card h3 { font-family:"Songti SC","Noto Serif SC",Georgia,serif; font-size:19px; margin-bottom:10px; }
+  .card h3 .sub { font-size:13px; color:#8a7d6b; font-weight:normal; margin-left:10px; font-family:-apple-system,"PingFang SC",sans-serif; }
+  .card ul { list-style:none; }
+  .card li { font-size:14.5px; line-height:2; padding-left:2px; }
+  .card .segname { color:#b0764f; font-size:13px; margin-right:8px; }
+  .card .note { color:#8a7d6b; font-size:13px; }
+  .pend { background:#fbf7ef; border-radius:14px; padding:18px 20px; margin-top:8px; }
+  .pend h3 { font-family:"Songti SC","Noto Serif SC",Georgia,serif; font-size:18px; margin-bottom:8px; color:#b0764f; }
+  .pend ol { padding-left:22px; }
+  .pend li { font-size:14px; line-height:2; }
+  .hide { display:none; }
+  @media (max-width:640px){
+    .day { flex-direction:column; }
+    .day .left { flex:none; }
+    .day .right { flex-direction:column; }
+    .seg { border-left:none; border-top:1px dashed #e0d5c2; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">出差行程</div>
+  <h1>新加坡 · 悉尼</h1>
+  <span class="pill">11/16 – 11/24 · 9 天</span><span class="pill">2 城市</span><span class="pill">3 段航班</span>
+  <div class="nav"><a href="orders-sg-syd-nov-2026.html">订单</a><a href="weather-luggage-sg-syd-nov-2026.html">清单</a></div>
+
+  <div class="toggle">
+    <button id="btn-s" class="on" onclick="mode('s')">简单</button>
+    <button id="btn-d" onclick="mode('d')">详细</button>
+  </div>
+
+  <!-- ===================== 简单模式 m1 ===================== -->
+  <div id="m1">
+    <div class="week">11/16 – 11/22</div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/16</div><div class="w">周一</div><div class="h">🏨 酒店 · 待确认</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a">✈️ 上海→新加坡 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">下午</div><div class="a">抵达新加坡</div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a empty">空</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/17</div><div class="w">周二</div><div class="h">🏨 酒店 · 待确认</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a empty">空</div></div>
+        <div class="seg"><div class="t">下午</div><div class="a empty">空</div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a empty">空</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/18</div><div class="w">周三</div><div class="h">🏨 酒店 · 待确认</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a empty">空</div></div>
+        <div class="seg"><div class="t">下午</div><div class="a empty">空</div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a empty">空</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/19</div><div class="w">周四</div><div class="h">🏨 铂尔曼·奥林匹克公园</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a">✈️ 新加坡→悉尼 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">下午</div><div class="a">飞行中</div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a">抵达悉尼</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/20</div><div class="w">周五</div><div class="h">🏨 铂尔曼·奥林匹克公园</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a">💼 开会 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">下午</div><div class="a">💼 开会 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a empty">空</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/21</div><div class="w">周六</div><div class="h">🏨 铂尔曼·奥林匹克公园</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a">💼 开会 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">下午</div><div class="a">💼 开会 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a empty">空</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/22</div><div class="w">周日</div><div class="h">🏨 铂尔曼·奥林匹克公园</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a">团建 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">下午</div><div class="a">团建 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a empty">空</div></div>
+      </div>
+    </div>
+
+    <div class="week">11/23 –</div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/23</div><div class="w">周一</div><div class="h">🏨 铂尔曼·奥林匹克公园</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a">团建 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">下午</div><div class="a">团建 <span class="tag warn">待确认</span></div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a empty">空</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="left"><div class="d">11/24</div><div class="w">周二</div><div class="h">🏠 回上海</div></div>
+      <div class="right">
+        <div class="seg"><div class="t">上午</div><div class="a">赴机场 SYD T1</div></div>
+        <div class="seg"><div class="t">下午</div><div class="a">✈️ 悉尼→上海 12:00→19:35 <span class="tag warn">候选</span></div></div>
+        <div class="seg"><div class="t">晚上</div><div class="a">抵达浦东 T1</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== 详细模式 m2 ===================== -->
+  <div id="m2" class="hide">
+    <div class="week">11/16 – 11/22</div>
+
+    <div class="card">
+      <h3>11/16 周一 <span class="sub">上海 → 新加坡 · 🏨 酒店（待确认）</span></h3>
+      <ul>
+        <li><span class="segname">上午</span>✈️ 上海→新加坡（航班待确认）<div class="note">直飞候选：MU567 09:20 浦东T1 → 15:00 樟宜T3（A350）／ SQ827 08:05 浦东T2 → 13:25 樟宜（A350）／ MU545 16:40 浦东T1 → 21:55 樟宜T3</div></li>
+        <li><span class="segname">下午</span>抵达新加坡</li>
+        <li><span class="segname">晚上</span><span class="empty">空</span> · 入住酒店（待确认）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>11/17 周二 <span class="sub">新加坡</span></h3>
+      <ul>
+        <li><span class="segname">上午</span><span class="empty">空</span></li>
+        <li><span class="segname">下午</span><span class="empty">空</span></li>
+        <li><span class="segname">晚上</span><span class="empty">空</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>11/18 周三 <span class="sub">新加坡</span></h3>
+      <ul>
+        <li><span class="segname">上午</span><span class="empty">空</span></li>
+        <li><span class="segname">下午</span><span class="empty">空</span></li>
+        <li><span class="segname">晚上</span><span class="empty">空</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>11/19 周四 <span class="sub">新加坡 → 悉尼 · 🏨 Pullman at Sydney Olympic Park</span></h3>
+      <ul>
+        <li><span class="segname">上午</span>✈️ 新加坡→悉尼（航班待确认）<div class="note">直飞候选：SQ241 07:05 樟宜T3 → 17:55 SYD T1（A350）／ SQ211 10:30 樟宜T3 → 21:15 SYD T1（B777）／ SQ221 20:40 → 07:40+1（A380 红眼）</div></li>
+        <li><span class="segname">下午</span>飞行中</li>
+        <li><span class="segname">晚上</span>抵达悉尼 · 入住铂尔曼奥林匹克公园</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>11/20 周五 <span class="sub">悉尼 · 开会 · 🏨 铂尔曼奥林匹克公园</span></h3>
+      <ul>
+        <li><span class="segname">上午</span>💼 开会（对象/地点待确认）</li>
+        <li><span class="segname">下午</span>💼 开会（对象/地点待确认）</li>
+        <li><span class="segname">晚上</span><span class="empty">空</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>11/21 周六 <span class="sub">悉尼 · 开会 · 🏨 铂尔曼奥林匹克公园</span></h3>
+      <ul>
+        <li><span class="segname">上午</span>💼 开会（对象/地点待确认）</li>
+        <li><span class="segname">下午</span>💼 开会（对象/地点待确认）</li>
+        <li><span class="segname">晚上</span><span class="empty">空</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>11/22 周日 <span class="sub">悉尼 · 团建 · 🏨 铂尔曼奥林匹克公园</span></h3>
+      <ul>
+        <li><span class="segname">上午</span>团建（安排待确认）</li>
+        <li><span class="segname">下午</span>团建（安排待确认）</li>
+        <li><span class="segname">晚上</span><span class="empty">空</span></li>
+      </ul>
+    </div>
+
+    <div class="week">11/23 –</div>
+
+    <div class="card">
+      <h3>XX <span class="sub">悉尼 · 团建 · 🏨 酒店（待确认）</span></h3>
+      <ul>
+        <li><span class="segname">上午</span>团建（安排待确认）</li>
+        <li><span class="segname">下午</span>团建（安排待确认）</li>
+        <li><span class="segname">晚上</span><span class="empty">空</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>11/24 周二 <span class="sub">悉尼 → 上海</span></h3>
+      <ul>
+        <li><span class="segname">上午</span>赴机场 SYD T1（国际航班提前 3 小时）</li>
+        <li><span class="segname">下午</span>✈️ 悉尼→上海 候选 MU562 12:00 SYD T1 → 19:35 浦东T1（A350，直飞唯一日班）</li>
+        <li><span class="segname">晚上</span>抵达上海浦东 T1</li>
+      </ul>
+    </div>
+
+    <div class="pend">
+      <h3>待确认</h3>
+      <ol>
+        <li>三段航班全部未订（候选见各日）</li>
+        <li>新加坡酒店 11/16–19，3 晚</li>
+        <li>悉尼酒店订单（铂尔曼奥林匹克公园已定，未下单）</li>
+        <li>开会对象与地点（11/20–21）</li>
+        <li>团建安排（11/22–23）</li>
+        <li>澳洲签证确认有效（新加坡对华免签 30 天，无需签证）</li>
+      </ol>
+    </div>
+  </div>
+</div>
+<script>
+function mode(m){
+  document.getElementById('m1').classList.toggle('hide', m!=='s');
+  document.getElementById('m2').classList.toggle('hide', m!=='d');
+  document.getElementById('btn-s').classList.toggle('on', m==='s');
+  document.getElementById('btn-d').classList.toggle('on', m==='d');
+}
+</script>
+</body>
+</html>
